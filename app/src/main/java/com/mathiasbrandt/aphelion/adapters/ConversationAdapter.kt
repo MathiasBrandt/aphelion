@@ -5,21 +5,27 @@ import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.mathiasbrandt.aphelion.R
+import com.mathiasbrandt.aphelion.adapters.listeners.ConversationItemListener
 import com.mathiasbrandt.aphelion.adapters.viewholders.ConversationViewHolder
-import com.mathiasbrandt.aphelion.millisToDateTime
 import com.mathiasbrandt.aphelion.models.Conversation
-import org.threeten.bp.DateTimeUtils
 
-class ConversationAdapter(val items : List<Conversation>) : RecyclerView.Adapter<ConversationViewHolder>() {
+class ConversationAdapter(val items: List<Conversation>, val listener: ConversationItemListener) : RecyclerView.Adapter<ConversationViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConversationViewHolder {
         var layout = LayoutInflater.from(parent.context).inflate(R.layout.list_item_conversation, parent, false)
-        return ConversationViewHolder(layout)
+        val viewholder = ConversationViewHolder(layout)
+
+        layout.setOnClickListener({
+            listener.onConversationSelected(viewholder.conversationId)
+        })
+
+        return viewholder
     }
 
     override fun onBindViewHolder(holder: ConversationViewHolder, position: Int) {
         var conversation =  items.get(position)
 
+        holder.conversationId = conversation.id
         holder.participants.text = conversation.participants
         holder.preview.text = conversation.preview
 

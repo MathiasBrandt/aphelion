@@ -5,6 +5,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.list_item_conversation.view.*
 
 class ConversationViewHolder(layout: View) : RecyclerView.ViewHolder(layout) {
+    var conversationId: Long = 0
     val profilePicture = layout.profile_picture
     val participants = layout.participants
     val preview = layout.preview

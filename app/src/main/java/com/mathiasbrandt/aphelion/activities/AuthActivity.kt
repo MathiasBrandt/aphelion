@@ -10,8 +10,15 @@ class AuthActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
 
-        login_button.setOnClickListener(View.OnClickListener {
-            startActivity(MainActivity::class.java)
+        login_button.setOnClickListener({
+            goToMain()
         })
+
+        login_button.callOnClick()
+    }
+
+    private fun goToMain() {
+        startActivity(MainActivity::class.java)
+        finish()
     }
 }
