@@ -6,7 +6,7 @@ import com.mathiasbrandt.aphelion.R
 import com.mathiasbrandt.aphelion.fragments.ConversationsFragment
 import com.mathiasbrandt.aphelion.replaceFragment
 
-class MainActivity : AppCompatActivity() {
+class ConversationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
