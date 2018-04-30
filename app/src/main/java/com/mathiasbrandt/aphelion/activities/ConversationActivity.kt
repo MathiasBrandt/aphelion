@@ -10,7 +10,7 @@ class ConversationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_conversation)
         setTitle(R.string.title_conversations)
 
         replaceFragment(ConversationsListFragment(), R.id.fragment_container)
