@@ -6,12 +6,18 @@ import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import java.time.Instant
 
-inline fun FragmentManager.makeTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
-    beginTransaction()
+inline fun FragmentManager.makeTransaction(func: FragmentTransaction.() -> FragmentTransaction, addToBackStack: Boolean) {
+    val transaction = beginTransaction()
+            .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
             .func()
-            .commit()
+
+    if(addToBackStack) {
+        transaction.addToBackStack(null)
+    }
+
+    transaction.commit()
 }
 
-fun AppCompatActivity.replaceFragment(fragment: Fragment, frameId: Int) {
-    supportFragmentManager.makeTransaction { replace(frameId, fragment) }
+fun AppCompatActivity.replaceFragment(fragment: Fragment, frameId: Int, addToBackStack: Boolean = true) {
+    supportFragmentManager.makeTransaction( { replace(frameId, fragment) }, addToBackStack)
 }
