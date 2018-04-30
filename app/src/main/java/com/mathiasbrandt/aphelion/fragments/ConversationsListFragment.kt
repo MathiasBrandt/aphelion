@@ -15,7 +15,7 @@ import com.mathiasbrandt.aphelion.adapters.listeners.ConversationItemListener
 import com.mathiasbrandt.aphelion.viewmodels.ConversationsViewModel
 import kotlinx.android.synthetic.main.fragment_conversations.*
 
-class ConversationsFragment : Fragment() {
+class ConversationsListFragment : Fragment() {
     val conversationsListener = object : ConversationItemListener {
         override fun onConversationSelected(conversationId: Long) {
             Toast.makeText(context, "Clicked " + conversationId, Toast.LENGTH_LONG).show()
