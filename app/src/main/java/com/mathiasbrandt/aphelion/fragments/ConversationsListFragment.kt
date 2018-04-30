@@ -12,7 +12,7 @@ import com.mathiasbrandt.aphelion.R
 import com.mathiasbrandt.aphelion.adapters.ConversationAdapter
 import com.mathiasbrandt.aphelion.adapters.listeners.ConversationItemListener
 import com.mathiasbrandt.aphelion.viewmodels.ConversationsViewModel
-import kotlinx.android.synthetic.main.fragment_conversations.*
+import kotlinx.android.synthetic.main.fragment_conversations_list.*
 
 class ConversationsListFragment : Fragment() {
     val conversationsListener = object : ConversationItemListener {
@@ -23,7 +23,7 @@ class ConversationsListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val layout = inflater.inflate(R.layout.fragment_conversations, container, false)
+        val layout = inflater.inflate(R.layout.fragment_conversations_list, container, false)
 
         val viewmodel = ViewModelProviders.of(this).get(ConversationsViewModel::class.java)
         viewmodel.getConversations().observe(this, Observer {
