@@ -1,6 +1,5 @@
 package com.mathiasbrandt.aphelion.fragments
 
-import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context

@@ -8,18 +8,16 @@ import com.mathiasbrandt.aphelion.data.DataManager
 import com.mathiasbrandt.aphelion.models.Conversation
 import javax.inject.Inject
 
-class ConversationsViewModel : ViewModel() {
+class ConversationDetailsViewModel: ViewModel() {
     @Inject lateinit var dataManager: DataManager
 
     init {
         AphelionApplication.appComponent.inject(this)
     }
 
-    fun getConversations(): LiveData<List<Conversation>> {
-        val result = MutableLiveData<List<Conversation>>()
-
-        result.value = dataManager.getConversations()
-
+    fun getConversation(conversationId: Long): LiveData<Conversation> {
+        val result = MutableLiveData<Conversation>()
+        result.value = dataManager.getConversation(conversationId)
         return result
     }
 }
